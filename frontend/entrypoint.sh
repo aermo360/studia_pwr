@@ -38,6 +38,8 @@ while [ $i -lt 12 ]; do
 done
 
 echo "Starting content sync..."
+echo "Running Node Fetch Debugger:"
+node debug-connection.js
 npx astro sync
 
 echo "Building production build..."

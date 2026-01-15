@@ -1,5 +1,16 @@
-#!/bin/sh
-echo "Current STRAPI_URL: $STRAPI_URL"
+echo "Current STRAPI_URL (Configured): $STRAPI_URL"
+
+# Resolve hostname to IP to avoid Node DNS issues in Alpine
+BACKEND_HOST=$(echo $STRAPI_URL | awk -F/ '{print $3}' | awk -F: '{print $1}')
+BACKEND_PORT=$(echo $STRAPI_URL | awk -F/ '{print $3}' | awk -F: '{print $2}')
+BACKEND_IP=$(getent hosts $BACKEND_HOST | awk '{ print $1 }')
+
+if [ -n "$BACKEND_IP" ]; then
+    export STRAPI_URL="http://$BACKEND_IP:$BACKEND_PORT"
+    echo "Resolved START_URL to IP: $STRAPI_URL"
+else
+    echo "Could not resolve backend IP, keeping: $STRAPI_URL"
+fi
 
 echo "Waiting for Strapi backend to be ready at $STRAPI_URL..."
 

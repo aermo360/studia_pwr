@@ -47,6 +47,8 @@ services:
              sleep 40 && 
              echo 'Syncing...' && 
              npx astro sync && 
+             echo 'Building...' &&
+             npm run build &&
              echo 'Starting Preview...' && 
              npx astro preview --host --port 4321"
     networks:

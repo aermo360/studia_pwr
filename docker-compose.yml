@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pwr-studia-backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+      - DATABASE_CLIENT=sqlite
+      - DATABASE_FILENAME=.tmp/data.db
+      - JWT_SECRET=TO_BE_REPLACED_WITH_SECURE_SECRET
+      - APP_KEYS=TO_BE_REPLACED_WITH_SECURE_KEYS
+      - API_TOKEN_SALT=TO_BE_REPLACED_WITH_SECURE_SALT
+      - ADMIN_JWT_SECRET=TO_BE_REPLACED_WITH_SECURE_ADMIN_SECRET
+      - TRANSFER_TOKEN_SALT=TO_BE_REPLACED_WITH_SECURE_TRANSFER_SALT
+    volumes:
+      - ./backend/.tmp:/app/.tmp
+      - ./backend/public/uploads:/app/public/uploads
+    ports:
+      - "13388:1337"
+    networks:
+      - pwr-studia-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: pwr-studia-frontend
+    restart: unless-stopped
+    environment:
+      - PUBLIC_STRAPI_URL=http://backend:1337
+    ports:
+      - "4322:4321"
+    depends_on:
+      - backend
+    # This command sequence is crucial:
+    # 1. Wait for backend to be ready (sleep 10 is a simple way, could be more robust)
+    # 2. Sync content from Strapi
+    # 3. Build the static site
+    # 4. Preview the static site on 4321
+    command: >
+      sh -c "echo 'Waiting for Backend to start...' && 
+             sleep 15 && 
+             echo 'Syncing Content...' && 
+             npx astro sync && 
+             echo 'Building Site...' && 
+             npm run build && 
+             echo 'Starting Server...' && 
+             npx astro preview --host --port 4321"
+    networks:
+      - pwr-studia-network
+
+networks:
+  pwr-studia-network:
+    driver: bridge

@@ -32,7 +32,8 @@ services:
     container_name: pwr-studia-frontend
     restart: unless-stopped
     environment:
-      - PUBLIC_STRAPI_URL=http://backend:1337
+      - PUBLIC_STRAPI_URL=http://157.180.18.130:13388
+      - STRAPI_URL=http://backend:1337
     ports:
       - "4322:4321"
     depends_on:
@@ -44,7 +45,7 @@ services:
     # 4. Preview the static site on 4321
     command: >
       sh -c "echo 'Waiting for Backend to start...' && 
-             sleep 15 && 
+             sleep 30 && 
              echo 'Syncing Content...' && 
              npx astro sync && 
              echo 'Building Site...' && 

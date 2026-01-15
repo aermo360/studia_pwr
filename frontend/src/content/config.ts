@@ -2,7 +2,8 @@ import { defineCollection, z } from 'astro:content';
 import { strapiLoader } from "strapi-community-astro-loader";
 
 // Environment check to avoid build errors if not set
-const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL || "http://localhost:1337";
+// In Docker (Node runtime), we use process.env. In Client (Vite), we use import.meta.env.
+const STRAPI_URL = process.env.STRAPI_URL || import.meta.env.PUBLIC_STRAPI_URL || "http://localhost:1337";
 
 const modules = defineCollection({
     loader: strapiLoader({

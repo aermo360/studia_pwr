@@ -37,6 +37,7 @@ services:
     environment:
       - PUBLIC_STRAPI_URL=http://157.180.18.130:13388
       - STRAPI_URL=http://backend:1337
+      - NODE_OPTIONS=--dns-result-order=ipv4first
     ports:
       - "4322:4321"
     depends_on:

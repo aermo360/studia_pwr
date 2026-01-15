@@ -1,0 +1,14 @@
+{
+    "collectionName": "components_program_courses",
+    "info": {
+        "displayName": "Course",
+        "icon": "book"
+    },
+    "options": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "kind": "singleType",
+    "collectionName": "global_settings",
+    "info": {
+        "singularName": "global-setting",
+        "pluralName": "global-settings",
+        "displayName": "Global Settings",
+        "description": "General settings for the landing page"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "recruitment_link": {
+            "type": "string"
+        },
+        "contact_email": {
+            "type": "email"
+        },
+        "contact_phone": {
+            "type": "string"
+        },
+        "semester_count": {
+            "type": "string",
+            "default": "2 semestry"
+        },
+        "ects": {
+            "type": "string",
+            "default": "60 ECTS"
+        }
+    }
+}

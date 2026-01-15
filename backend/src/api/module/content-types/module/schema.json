@@ -1,0 +1,30 @@
+{
+    "kind": "collectionType",
+    "collectionName": "modules",
+    "info": {
+        "singularName": "module",
+        "pluralName": "modules",
+        "displayName": "Module",
+        "description": "Program modules like Strategy, Technology, etc."
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "icon": {
+            "type": "string",
+            "required": true,
+            "default": "school"
+        },
+        "courses": {
+            "type": "component",
+            "repeatable": true,
+            "component": "program.course"
+        }
+    }
+}

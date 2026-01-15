@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181111] dark:text-white transition-colors duration-200">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#e6dbdb] dark:border-[#3d2a2a]">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-20 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Politechnika Wrocławska</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#program">Program</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#wykladowcy">Wykładowcy</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#rekrutacja">Rekrutacja</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#kontakt">Kontakt</a>
+</nav>
+<button class="bg-primary hover:bg-red-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all transform hover:scale-105">
+                    Zapisz się
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto">
+<!-- Hero Section -->
+<section class="px-6 lg:px-20 py-12 lg:py-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">online_prediction</span>
+                        100% Online
+                    </div>
+<h1 class="text-[#181111] dark:text-white text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight">
+                        Praktyczny <br/><span class="text-primary">e-marketing</span>
+</h1>
+<p class="text-lg text-gray-600 dark:text-gray-300 max-w-lg leading-relaxed">
+                        Wydział Zarządzania Politechniki Wrocławskiej. Zdobądź nowoczesne kompetencje w marketingu cyfrowym i zarządzaniu kampaniami online od czołowych ekspertów z branży.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary text-white h-14 px-8 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95">
+                            Zapisz się na studia
+                        </button>
+<button class="bg-white dark:bg-transparent border-2 border-[#e6dbdb] dark:border-[#3d2a2a] h-14 px-8 rounded-xl font-bold text-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-all">
+                            Pobierz informator
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-cover bg-center rounded-[2.5rem] shadow-2xl overflow-hidden" data-alt="Modern office with digital marketing graphs on screen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQvQHJiQPL2Pxs6EomE_3Y-yFtua8jaC9DvOXmugCkc-TgXlSSrkS24k60_lyyD6mYaUuDnhAv2f_qaIRm6z5UamcG_ZFZ2VgjaxNR4Fr8OZur-ldeMcnIj7is_WRQbNT2LKAV9WsCSzcY8wYraZNVxNUBFr_lKKJb00J_-XVtYBsL0J7Brwh_6z6ryhGp8fCjAYzAoi6_B3YNN2G5PEkGAcLPaHlOIm7dH9et6U8oNDd8UJ_Lgn79NtRJ_Hvo_OK5kyZ8ihr6FYg");'>
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
+</div>
+<!-- Floating badge -->
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-background-dark p-6 rounded-2xl shadow-xl border border-[#e6dbdb] dark:border-[#3d2a2a] flex items-center gap-4">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<p class="text-sm font-bold">Edycja 2024/2025</p>
+<p class="text-xs text-gray-500">Ostatnie wolne miejsca</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="px-6 lg:px-20 mb-20">
+<div class="bg-white dark:bg-[#1a0c0c] border border-[#e6dbdb] dark:border-[#3d2a2a] rounded-2xl p-2 shadow-sm">
+<div class="flex flex-wrap justify-center md:justify-between items-center text-center md:text-left">
+<div class="flex-1 min-w-[200px] px-8 py-6 border-r border-[#e6dbdb] dark:border-[#3d2a2a] last:border-r-0">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium mb-1 flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined text-primary text-lg">calendar_today</span>
+                            Czas trwania
+                        </p>
+<p class="text-2xl font-black">2 semestry <span class="text-sm font-normal text-gray-400">(184h)</span></p>
+</div>
+<div class="flex-1 min-w-[200px] px-8 py-6 border-r border-[#e6dbdb] dark:border-[#3d2a2a] last:border-r-0">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium mb-1 flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined text-primary text-lg">workspace_premium</span>
+                            Punkty ECTS
+                        </p>
+<p class="text-2xl font-black">68 ECTS</p>
+</div>
+<div class="flex-1 min-w-[200px] px-8 py-6 border-r border-[#e6dbdb] dark:border-[#3d2a2a] last:border-r-0">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium mb-1 flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined text-primary text-lg">verified</span>
+                            Kwalifikacje
+                        </p>
+<p class="text-2xl font-black">Poziom 7 PRK</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Curriculum Bento Grid -->
+<section class="px-6 lg:px-20 py-10" id="program">
+<div class="mb-12 text-center lg:text-left">
+<h2 class="text-3xl lg:text-4xl font-black tracking-tight mb-4">Program studiów</h2>
+<p class="text-gray-600 dark:text-gray-400 max-w-2xl">Poznaj kompleksowy program nauczania podzielony na kluczowe obszary nowoczesnego e-marketingu, przygotowany przez praktyków rynkowych.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-[#1a0c0c] p-8 rounded-2xl border border-[#e6dbdb] dark:border-[#3d2a2a] hover:border-primary/50 transition-all shadow-sm flex flex-col">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Strategia</h3>
+<ul class="space-y-3 mt-auto">
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> SEO / SEM
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Marketing B2B
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Strategia komunikacji
+                        </li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-[#1a0c0c] p-8 rounded-2xl border border-[#e6dbdb] dark:border-[#3d2a2a] hover:border-primary/50 transition-all shadow-sm flex flex-col">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Content i Social</h3>
+<ul class="space-y-3 mt-auto">
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Social Media Ads
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Branding &amp; Design
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Videomarketing i PR
+                        </li>
+</ul>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-[#1a0c0c] p-8 rounded-2xl border border-[#e6dbdb] dark:border-[#3d2a2a] hover:border-primary/50 transition-all shadow-sm flex flex-col">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Technologia i AI</h3>
+<ul class="space-y-3 mt-auto">
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> AI w marketingu
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> E-commerce tools
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Web Development
+                        </li>
+</ul>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white dark:bg-[#1a0c0c] p-8 rounded-2xl border border-[#e6dbdb] dark:border-[#3d2a2a] hover:border-primary/50 transition-all shadow-sm flex flex-col">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">leaderboard</span>
+</div>
+<h3 class="text-xl font-bold mb-4">Analityka i UX</h3>
+<ul class="space-y-3 mt-auto">
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> UX / CX Design
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Analityka danych
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-primary"></span> Badania marketingowe
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Graduate Profile Section -->
+<section class="px-6 lg:px-20 py-20 bg-primary/5 dark:bg-primary/10 rounded-[3rem] my-20 mx-6 lg:mx-20 border border-primary/10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h2 class="text-4xl font-black tracking-tight leading-tight">Sylwetka Absolwenta</h2>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        Naszym celem jest wykształcenie specjalistów, którzy nie tylko rozumieją teoretyczne aspekty marketingu, ale potrafią je skutecznie wdrożyć w dynamicznym środowisku biznesowym.
+                    </p>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-start gap-4 p-4 bg-white dark:bg-[#1a0c0c] rounded-2xl shadow-sm">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<p class="font-medium text-[#181111] dark:text-white">Samodzielne zarządzanie strategią e-marketingową organizacji</p>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white dark:bg-[#1a0c0c] rounded-2xl shadow-sm">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<p class="font-medium text-[#181111] dark:text-white">Biegłość w wykorzystaniu narzędzi AI w procesach twórczych i analitycznych</p>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white dark:bg-[#1a0c0c] rounded-2xl shadow-sm">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<p class="font-medium text-[#181111] dark:text-white">Umiejętność optymalizacji budżetów reklamowych (ROAS/ROI)</p>
+</div>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="w-full max-w-md aspect-[4/5] bg-cover bg-center rounded-3xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="Confident professional person working on a laptop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEoG70Njkur1lN9s1vaQDx7uHOEY4Mc4wmCmi1z4ukg-1lVVvjWcB5JIT1NZhKQlq_C_or0SvOkTh6IQp4lda2rB46PSHte2_T1DsebWWUNjXDKc7rUUTvVjzn9xpFRW0Rx7g3_EqucJzv1A9A7ophcRHGrVk9MZ3zrSdCGFFv2iCvxwIZS4Q2VrtNEECSoqttm1qrHkCz-pW8DUENRVwkjwMNglnTDOxQExLi9WlsqMxTzF7w72OVMm9keEj5aZkrT_IuO7umnKY");'>
+<div class="absolute inset-0 bg-gradient-to-t from-[#181111] to-transparent opacity-60"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<p class="text-3xl font-black">Ekspert 360°</p>
+<p class="text-sm opacity-80 uppercase tracking-widest mt-1">Status Absolwenta PWr</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-[#1a0c0c] border-t border-[#e6dbdb] dark:border-[#3d2a2a] pt-20 pb-10" id="kontakt">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 lg:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight">Politechnika Wrocławska</h2>
+</div>
+<p class="text-gray-500 text-sm leading-relaxed">
+                        Wydział Zarządzania<br/>
+                        Wybrzeże Wyspiańskiego 27<br/>
+                        50-370 Wrocław
+                    </p>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-primary">Rekrutacja</h4>
+<ul class="space-y-4">
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-primary text-sm transition-colors" href="#">Wymagane dokumenty</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-primary text-sm transition-colors" href="#">Opłaty za studia</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-primary text-sm transition-colors" href="#">Terminarz zapisów</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-primary text-sm transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-primary">Kontakt</h4>
+<ul class="space-y-4 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            marketing.podyplomowe@pwr.edu.pl
+                        </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+                            +48 71 320 23 45
+                        </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                            Budynek B-4, pok. 120
+                        </li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-primary">Obserwuj nas</h4>
+<div class="flex gap-4">
+<a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-[#e6dbdb] dark:border-[#3d2a2a] pt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500">© 2024 Politechnika Wrocławska. Wszystkie prawa zastrzeżone.</p>
+<div class="flex gap-6">
+<a class="text-xs text-gray-500 hover:text-primary" href="#">Polityka prywatności</a>
+<a class="text-xs text-gray-500 hover:text-primary" href="#">Deklaracja dostępności</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

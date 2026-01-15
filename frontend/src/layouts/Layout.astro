@@ -1,0 +1,50 @@
+---
+interface Props {
+	title: string;
+}
+
+import "../styles/global.css";
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html class="light" lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Praktyczny e-marketing - Studia Podyplomowe PWr"
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{title}</title>
+
+		<style is:global>
+			.material-symbols-outlined {
+				font-variation-settings:
+					"FILL" 0,
+					"wght" 400,
+					"GRAD" 0,
+					"opsz" 24;
+			}
+			body {
+				font-family: "Inter", sans-serif;
+			}
+		</style>
+	</head>
+	<body
+		class="bg-background-light dark:bg-background-dark text-[#181111] dark:text-white transition-colors duration-200"
+	>
+		<slot />
+	</body>
+</html>

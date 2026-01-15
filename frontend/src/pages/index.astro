@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import StatsBar from "../components/sections/StatsBar.astro";
+import CurriculumGrid from "../components/sections/CurriculumGrid.astro";
+import GraduateProfile from "../components/sections/GraduateProfile.astro";
+---
+
+<Layout title="Praktyczny e-marketing - Studia Podyplomowe PWr">
+	<Header />
+	<main class="max-w-[1280px] mx-auto">
+		<Hero />
+		<StatsBar />
+		<CurriculumGrid />
+		<GraduateProfile />
+	</main>
+	<Footer />
+</Layout>

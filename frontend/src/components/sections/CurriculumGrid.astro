@@ -1,0 +1,93 @@
+---
+import { getCollection } from "astro:content";
+
+let modules = [];
+
+try {
+    // Attempt to fetch from Strapi via Content Collections
+    const strapiModules = await getCollection("modules");
+    if (strapiModules && strapiModules.length > 0) {
+        modules = strapiModules.map((m: any) => m.data);
+    }
+} catch (e) {
+    console.warn(
+        "Could not fetch modules from Strapi. Ensure Strapi is running and 'modules' collection is populated.",
+    );
+}
+
+// Fallback static data if Strapi is empty or fails
+if (modules.length === 0) {
+    modules = [
+        {
+            title: "Strategia",
+            icon: "insights",
+            courses: [
+                { name: "SEO / SEM" },
+                { name: "Marketing B2B" },
+                { name: "Strategia komunikacji" },
+            ],
+        },
+        {
+            title: "Content i Social",
+            icon: "campaign",
+            courses: [
+                { name: "Social Media Ads" },
+                { name: "Branding & Design" },
+                { name: "Videomarketing i PR" },
+            ],
+        },
+        {
+            title: "Technologia i AI",
+            icon: "smart_toy",
+            courses: [
+                { name: "AI w marketingu" },
+                { name: "E-commerce tools" },
+                { name: "Web Development" },
+            ],
+        },
+        {
+            title: "Analityka i UX",
+            icon: "leaderboard",
+            courses: [
+                { name: "UX / CX Design" },
+                { name: "Analityka danych" },
+                { name: "Badania marketingowe" },
+            ],
+        },
+    ];
+}
+---
+
+<section class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10" id="program">
+    <div class="mb-12 text-center lg:text-left">
+        <h2 class="text-3xl lg:text-4xl font-black tracking-tight mb-4">
+            Program studiów
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl">
+            Poznaj kompleksowy program nauczania podzielony na kluczowe obszary
+            nowoczesnego e-marketingu, przygotowany przez praktyków rynkowych.
+        </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+            modules.map((module: any) => (
+                <div class="group bg-white dark:bg-[#1a0c0c] p-8 rounded-2xl border border-[#e6dbdb] dark:border-[#3d2a2a] hover:border-primary/50 transition-all shadow-sm flex flex-col">
+                    <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined">
+                            {module.icon}
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">{module.title}</h3>
+                    <ul class="space-y-3 mt-auto">
+                        {(module.courses || []).map((course: any) => (
+                            <li class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                                <span class="size-1.5 rounded-full bg-primary" />{" "}
+                                {course.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </div>
+</section>

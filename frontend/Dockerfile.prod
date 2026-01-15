@@ -1,0 +1,18 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+
+# IMPORTANT: We pass build args to bake them into the static build
+ARG PUBLIC_STRAPI_URL
+ENV PUBLIC_STRAPI_URL=${PUBLIC_STRAPI_URL}
+
+ARG STRAPI_URL
+ENV STRAPI_URL=${STRAPI_URL}
+
+# Default build command - can be overridden
+CMD ["npm", "run", "dev", "--", "--host"]

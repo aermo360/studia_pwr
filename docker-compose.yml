@@ -28,7 +28,10 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
+      args:
+        PUBLIC_STRAPI_URL: http://157.180.18.130:13388
+        STRAPI_URL: http://backend:1337
     container_name: pwr-studia-frontend
     restart: unless-stopped
     environment:
@@ -38,19 +41,13 @@ services:
       - "4322:4321"
     depends_on:
       - backend
-    # This command sequence is crucial:
-    # 1. Wait for backend to be ready (sleep 10 is a simple way, could be more robust)
-    # 2. Sync content from Strapi
-    # 3. Build the static site
-    # 4. Preview the static site on 4321
+    # We use a custom entrypoint to ensure runtime sync
     command: >
-      sh -c "echo 'Waiting for Backend to start...' && 
-             sleep 30 && 
-             echo 'Syncing Content...' && 
+      sh -c "echo 'Waiting for Backend...' && 
+             sleep 40 && 
+             echo 'Syncing...' && 
              npx astro sync && 
-             echo 'Building Site...' && 
-             npm run build && 
-             echo 'Starting Server...' && 
+             echo 'Starting Preview...' && 
              npx astro preview --host --port 4321"
     networks:
       - pwr-studia-network

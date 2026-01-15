@@ -7,11 +7,34 @@ const STRAPI_URL = process.env.STRAPI_URL || import.meta.env.PUBLIC_STRAPI_URL |
 
 console.log("ASTRO CONFIG: Using Strapi URL:", STRAPI_URL);
 
+// Custom simple loader to bypass library issues
+const customStrapiLoader = (contentType: string) => async () => {
+    const url = `${STRAPI_URL}/api/${contentType}`;
+    console.log(`[CustomLoader] Fetching ${url}`);
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
+        }
+        const json = await response.json();
+        // Strapi 5 returns { data: [...] } or { data: { ... } } for single types
+        // The collection loader expects an array of items.
+        // We map 'documentId' to 'id' for compatibility if needed, but Astro handles ID generation.
+        if (Array.isArray(json.data)) {
+            return json.data.map((item: any) => ({
+                ...item,
+                id: item.documentId || item.id // Use documentId as stable ID if available
+            }));
+        }
+        return [];
+    } catch (e) {
+        console.error(`[CustomLoader] Error fetching ${contentType}:`, e);
+        throw e;
+    }
+};
+
 const modules = defineCollection({
-    loader: strapiLoader({
-        contentType: "module", // Singular, loader will pluralize to "modules"
-        strapiUrl: STRAPI_URL,
-    }),
+    loader: customStrapiLoader("modules"), // Strapi 5 API is pluralized
     schema: z.object({
         title: z.string(),
         icon: z.string(),
@@ -21,28 +44,8 @@ const modules = defineCollection({
     })
 });
 
-/*
-const globalSettings = defineCollection({
-    loader: strapiLoader({
-        contentType: "global-setting", // Single types usually accessed by singular name
-        strapiUrl: STRAPI_URL,
-        singleType: true
-    }),
-    schema: z.object({
-        recruitment_link: z.string().optional(),
-        contact_email: z.string().optional(),
-        contact_phone: z.string().optional(),
-        semester_count: z.string().optional(),
-        ects: z.string().optional(),
-    })
-});
-*/
-
 const lecturers = defineCollection({
-    loader: strapiLoader({
-        contentType: "lecturer",
-        strapiUrl: STRAPI_URL,
-    }),
+    loader: customStrapiLoader("lecturers"),
     schema: z.object({
         name: z.string(),
         role: z.string(),

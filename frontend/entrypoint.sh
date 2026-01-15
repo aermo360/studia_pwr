@@ -7,7 +7,9 @@ BACKEND_IP=$(getent hosts $BACKEND_HOST | awk '{ print $1 }')
 
 if [ -n "$BACKEND_IP" ]; then
     export STRAPI_URL="http://$BACKEND_IP:$BACKEND_PORT"
+    export NO_PROXY="localhost,127.0.0.1,backend,$BACKEND_IP"
     echo "Resolved START_URL to IP: $STRAPI_URL"
+    echo "Set NO_PROXY to: $NO_PROXY"
 else
     echo "Could not resolve backend IP, keeping: $STRAPI_URL"
 fi

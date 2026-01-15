@@ -42,15 +42,7 @@ services:
     depends_on:
       - backend
     # We use a custom entrypoint to ensure runtime sync
-    command: >
-      sh -c "echo 'Waiting for Backend...' && 
-             sleep 40 && 
-             echo 'Syncing...' && 
-             npx astro sync && 
-             echo 'Building...' &&
-             npm run build &&
-             echo 'Starting Preview...' && 
-             npx astro preview --host --port 4321"
+    command: [ "sh", "./entrypoint.sh" ]
     networks:
       - pwr-studia-network
 
